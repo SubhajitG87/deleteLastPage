@@ -1,4 +1,3 @@
-```markdown
 # Comic Book Archive Page Remover
 
 This project provides a Python script to remove the last page from `.cbr` (RAR) or `.cbz` (ZIP) comic book archive files. The script creates a new modified file while preserving the original. CBR files are converted to CBZ format in the output.
@@ -28,13 +27,17 @@ This project provides a Python script to remove the last page from `.cbr` (RAR) 
 ## Usage
 
 ### Command Line
+
 Run the script directly:
+
 ```bash
 python deleteLastPage.py
 ```
 
 ### As a Module
+
 Import and use the function in your code:
+
 ```python
 from deleteLastPage import delete_last_page
 
@@ -61,7 +64,7 @@ python -m unittest discover
 .
 ├── deleteLastPage.py
 ├── test_deleteLastPage.py
-├── README.md
+├── readme.md
 ├── LICENSE
 ```
 
@@ -73,10 +76,10 @@ python -m unittest discover
 def delete_last_page(file_name):
     """
     Deletes the last page from a .cbr or .cbz file.
-    
+
     Args:
         file_name (str): The name of the .cbr or .cbz file.
-    
+
     Raises:
         ValueError: If the file extension is not .cbr or .cbz, or if archive is empty.
         FileNotFoundError: If the file does not exist.
@@ -86,6 +89,7 @@ def delete_last_page(file_name):
 ## Error Handling
 
 The script includes robust error handling for:
+
 - **File not found**: Raises `FileNotFoundError` if the specified file doesn't exist
 - **Empty archives**: Raises `ValueError` if the archive contains no files
 - **Unsupported formats**: Raises `ValueError` for non-CBR/CBZ files
@@ -94,21 +98,27 @@ The script includes robust error handling for:
 ## Unit Tests Overview
 
 ### test_delete_last_page_cbz
+
 Tests the deletion of the last page from a `.cbz` file and verifies the output.
 
 ### test_delete_last_page_cbr
+
 Tests error handling for CBR files (note: creating test CBR files requires external tools).
 
 ### test_unsupported_file_format
+
 Tests that a `ValueError` is raised for unsupported file extensions.
 
 ### test_single_page_cbz
+
 Tests handling of archives with only one page (results in empty archive).
 
 ### test_non_existent_file
+
 Tests that `FileNotFoundError` is raised for missing files.
 
 ### test_empty_archive
+
 Tests that `ValueError` is raised for empty archives.
 
 ## License
@@ -133,4 +143,3 @@ Subhajit Ganguly
 
 - The `zipfile` and `rarfile` libraries for handling ZIP and RAR files, respectively.
 - Python's `tempfile` module for safe temporary file operations.
-```
